@@ -1,5 +1,5 @@
 <template>
-    <div>首页</div>
+    <div>购物车</div>
 </template>
 
 <script>
