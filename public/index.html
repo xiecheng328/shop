@@ -6,6 +6,27 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title>shop</title>
+    <style>
+      .parent{
+        display: flex;
+      }
+
+      .child{
+        height: 200px;
+        flex-grow: 1;
+        width: 0;
+      }
+      .child1{
+        background: #ff0000;
+      }
+      .child2{
+        background: #ffff00;
+      }
+      .child3{
+        background: #00ff00;
+      }
+    
+    </style>
   </head>
   <body>
     <noscript>
@@ -13,5 +34,17 @@
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+
+    <!-- <div class="parent">
+      <div class="child child1">
+        <h1>唯创网讯</h1>
+      </div>
+      <div class="child child2">
+        <p>abcdefgiljlasjdfklasjflkasjklf</p>
+      </div>
+      <div class="child child3">
+        <div>vue+koa</div>
+      </div>
+    </div> -->
   </body>
 </html>
