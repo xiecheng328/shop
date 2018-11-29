@@ -17,6 +17,7 @@ import '@/assets/js/rem.js'
 import {Button, Icon, NavBar, Tabbar, TabbarItem, Swipe, SwipeItem,Lazyload } from 'vant'
 Vue.use(Button).use(Icon).use(NavBar).use(Tabbar).use(TabbarItem).use(Swipe).use(SwipeItem).use(Lazyload)
 
+import '@/mock/mock.js';
 
 new Vue({
   router,
