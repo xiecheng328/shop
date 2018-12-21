@@ -1,9 +1,11 @@
 const MOCKURL = 'http://www.weichuang.com/'; // mock模拟
-const SERVERURL = '';//真实URL
+const SERVERURL = 'http://localhost:3000/';//真实URL
 
 const URL = {
     getVarietyItem: MOCKURL + 'getVarietyItem',
-    getHotProduct: MOCKURL + 'getHotProduct'
+    getHotProduct: MOCKURL + 'getHotProduct',
+    registUser: SERVERURL + 'user/registUser'
+
 };
 
 export default URL;
