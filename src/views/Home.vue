@@ -1,53 +1,54 @@
 <template>
-    <div class="container">
-        <!-- 头部 -->
-        <van-nav-bar title="首页" class="nav-title">
-            <van-icon name="search" slot="left"></van-icon>
-            <van-icon name="cart" slot="right"></van-icon>
-        </van-nav-bar>
+  <div class="container">
+    <!-- 头部 -->
+    <van-nav-bar title="首页" class="nav-title">
+      <van-icon name="search" slot="left"></van-icon>
+      <van-icon @click="$router.push('/profile')" slot="right">{{userInfo.userName}}</van-icon>
+    </van-nav-bar>
 
-        <!-- 轮播图 -->
-        <div class="carousel">
-            <van-swipe :autoplay="5000">
-                <van-swipe-item class="carousel-item" v-for="(item, index) in carouselItem" :key="index">
-                    <img v-lazy="item.imgSrc" alt="">
-                </van-swipe-item>
-            </van-swipe>
-        </div>
-
-        <!-- 热门商品 -->
-        <div class="hot">
-            <p class="hot-title">热门商品</p>
-            <swiper class="hot-swiper" :options="swiperOption">
-                <swiper-slide v-for="(item, index) in hotProducts" :key="index" >
-                    <div class="hot-swiper-content">
-                        <img :src="item.img" alt="">
-                        <div>{{ item.name }}</div>
-                        <div>￥{{ item.price }}</div>
-                    </div>
-                </swiper-slide>
-            </swiper>
-        </div>
-
-        <!-- 推荐商品 -->
-        <div class="variety">
-          <p>推荐商品</p>
-          <ul>
-            <li class="variety-item" v-for="(item, index) in varietyItem" :key="index">
-                <img :src="item.img" alt="">
-                <p>{{item.name}}</p>
-                <p>￥{{item.price}}</p>
-            </li>
-          </ul>
-        </div>
+    <!-- 轮播图 -->
+    <div class="carousel">
+      <van-swipe :autoplay="5000">
+        <van-swipe-item class="carousel-item" v-for="(item, index) in carouselItem" :key="index">
+          <img v-lazy="item.imgSrc" alt>
+        </van-swipe-item>
+      </van-swipe>
     </div>
+
+    <!-- 热门商品 -->
+    <div class="hot">
+      <p class="hot-title">热门商品</p>
+      <swiper class="hot-swiper" :options="swiperOption">
+        <swiper-slide v-for="(item, index) in hotProducts" :key="index">
+          <div class="hot-swiper-content">
+            <img :src="item.img" alt>
+            <div>{{ item.name }}</div>
+            <div>￥{{ item.price }}</div>
+          </div>
+        </swiper-slide>
+      </swiper>
+    </div>
+
+    <!-- 推荐商品 -->
+    <div class="variety">
+      <p>推荐商品</p>
+      <ul>
+        <li class="variety-item" v-for="(item, index) in varietyItem" :key="index">
+          <img :src="item.img" alt>
+          <p>{{item.name}}</p>
+          <p>￥{{item.price}}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
 </template>
 
 <script>
 import "swiper/dist/css/swiper.css";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
-import axios from 'axios'
-import url from '@/service.config.js'
+import axios from "axios";
+import url from "@/service.config.js";
+import { mapState } from "vuex";
 export default {
   data() {
     return {
@@ -69,7 +70,8 @@ export default {
             "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1490457979,856070595&fm=200&gp=0.jpg"
         }
       ],
-      hotProducts: [// 热门商品
+      hotProducts: [
+        // 热门商品
         {
           name: "   汽油动力手推割杆机 养殖场专用青储割晒机",
           img:
@@ -307,22 +309,22 @@ export default {
     swiper,
     swiperSlide
   },
-  created(){
+  created() {
     /* axios.get('https://bird.ioliu.cn/v2?url=https://api.douban.com/v2/movie/top250').then(res=>{
         console.log(res);
     }); */
-    let url1 = 'http://www.weichuang.com/getList';
-    let url2 = 'http://www.weichuang.com/getUser';
-    let url3 = 'http://www.weichuang.com/regexp';
-    let url4 = 'http://www.weichuang.com/list';
+    let url1 = "http://www.weichuang.com/getList";
+    let url2 = "http://www.weichuang.com/getUser";
+    let url3 = "http://www.weichuang.com/regexp";
+    let url4 = "http://www.weichuang.com/list";
     let url5 = url.getVarietyItem;
-    axios.get(url5).then(res=>{
-      console.log(res);
+    axios.get(url5).then(res => {
+      // console.log(res);
       this.varietyItem = res.data;
     });
-
-
-   
+  },
+  computed: {
+    ...mapState(["userInfo"])
   }
 };
 </script>
@@ -331,7 +333,7 @@ export default {
 /* body{
     height: 2000px;
 } */
-.container{
+.container {
   background-color: #eee;
 }
 .nav-title {
@@ -339,7 +341,7 @@ export default {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 999!important;
+  z-index: 999 !important;
 }
 .carousel {
   margin-top: 1rem;
@@ -375,20 +377,20 @@ export default {
 }
 
 // 热门商品
-.variety{
+.variety {
   margin-top: 0.2rem;
   background-color: #fff;
   text-align: center;
   margin-bottom: 1rem;
-  ul{
+  ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
   }
-  &-item{
+  &-item {
     flex-basis: 45%;
   }
-  img{
+  img {
     width: 2rem;
     height: 2rem;
   }
