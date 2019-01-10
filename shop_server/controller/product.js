@@ -33,4 +33,11 @@ router.get('/getProductsByType', async (ctx) => {
     })
 });
 
+router.get('/getDetail', async (ctx) => {
+    const Product = mongoose.model('Product');
+    await Product.findOne({ _id: ctx.query.id }).exec().then(res => {
+        ctx.body = res;
+    })
+});
+
 module.exports = router;
