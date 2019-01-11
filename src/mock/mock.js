@@ -28,7 +28,7 @@ Mock.mock('http://www.weichuang.com/list', {
 
 
 let Random = Mock.Random;
-let productData = req => {
+let productData = () => {
     let productList = []; // 存放农机信息的数组
     for(let i=0; i<100; i++){
         let product = {

@@ -15,11 +15,13 @@ import '@/assets/js/rem.js'
 
 // 按需引入vant 推荐
 import {
+  SubmitBar,
+  Card,
   GoodsAction,
   GoodsActionBigBtn,
   GoodsActionMiniBtn, PullRefresh, List, Row, Col, Toast, CellGroup, Field, Tab, Tabs, Button, Icon, NavBar, Tabbar, TabbarItem, Swipe, SwipeItem, Lazyload
 } from 'vant'
-Vue.use(GoodsAction).use(GoodsActionBigBtn).use(GoodsActionMiniBtn).use(PullRefresh).use(List).use(Row).use(Col).use(Toast).use(CellGroup).use(Field).use(Tab).use(Tabs).use(Button).use(Icon).use(NavBar).use(Tabbar).use(TabbarItem).use(Swipe).use(SwipeItem).use(Lazyload)
+Vue.use(SubmitBar).use(Card).use(GoodsAction).use(GoodsActionBigBtn).use(GoodsActionMiniBtn).use(PullRefresh).use(List).use(Row).use(Col).use(Toast).use(CellGroup).use(Field).use(Tab).use(Tabs).use(Button).use(Icon).use(NavBar).use(Tabbar).use(TabbarItem).use(Swipe).use(SwipeItem).use(Lazyload)
 
 import '@/mock/mock.js';
 

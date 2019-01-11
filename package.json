@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --report",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -21,6 +21,7 @@
     "@vue/cli-service": "^3.0.5",
     "babel-eslint": "^10.0.1",
     "babel-plugin-import": "^1.11.0",
+    "compression-webpack-plugin": "^2.0.0",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0-0",
     "mockjs": "^1.0.1-beta3",
